@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="656.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="repertoire.FXMLDocumentController">
+   <children>
+      <Label fx:id="label" minHeight="16" minWidth="69.0" prefHeight="426.0" prefWidth="332.0" style="-fx-background-color: #FFF;" />
+      <TextField fx:id="recherche" focusTraversable="false" layoutX="27.0" layoutY="1.0" opacity="0.72" prefHeight="35.0" prefWidth="265.0" promptText="Rechercher" style="-fx-background-color: transparent; -fx-border-width: 2; -fx-border-color: #FF7F50; -fx-border-radius: 5%;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <ListView fx:id="list" layoutX="27.0" layoutY="63.0" prefHeight="345.0" prefWidth="274.0" style="-fx-background-color: transparent;" />
+      <Label fx:id="labelgauche" layoutX="328.0" layoutY="-9.0" minHeight="16" minWidth="69.0" prefHeight="440.0" prefWidth="332.0" style="-fx-background-color: #126;" />
+      <Button fx:id="ajouter" contentDisplay="CENTER" layoutX="351.0" layoutY="387.0" onAction="#ajouter" prefHeight="30.0" prefWidth="70.0" text="Ajouter" textFill="#fff2f2ec">
+         <font>
+            <Font name="AR DARLING" size="14.0" />
+         </font>
+         
+      </Button>
+      <Button fx:id="modifier" contentDisplay="CENTER" layoutX="450.0" layoutY="387.0" onAction="#modifier" prefHeight="30.0" prefWidth="81.0" text="Modifier" textFill="#fff2f2ec">
+         <font>
+            <Font name="AR DARLING" size="14.0" />
+         </font>
+         
+      </Button>
+      <Button fx:id="supp" contentDisplay="CENTER" layoutX="558.0" layoutY="387.0" onAction="#supprimer" prefHeight="25.0" prefWidth="81.0" text="Supprimer" textFill="#fff2f2ec">
+         <font>
+            <Font name="AR DARLING" size="14.0" />
+         </font>
+        
+      </Button>
+      <Label contentDisplay="CENTER" layoutX="421.0" layoutY="9.0" prefHeight="35.0" prefWidth="167.0" style="-fx-alignment: center; -fx-border-style: solid none solid none; -fx-border-width: 2; -fx-border-color: #eee; -fx-border-radius: 20%;" text="Info Contact" textFill="#fffcfce7">
+         <font>
+            <Font name="AR DESTINE" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="noms" layoutX="441.0" layoutY="76.0" opacity="0.62" prefHeight="15.0" prefWidth="167.0" promptText="Nom &amp; Prenom" style="-fx-background-color: transparent; -fx-border-style: solid; -fx-border-width: 2; -fx-border-color: #FF7F50;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mention" layoutX="441.0" layoutY="310.0" opacity="0.62" prefHeight="35.0" prefWidth="167.0" promptText="mention" style="-fx-background-color: transparent; -fx-border-style: solid; -fx-border-width: 2; -fx-border-color: #FF7F50;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="num1" layoutX="441.0" layoutY="133.0" opacity="0.62" prefHeight="35.0" prefWidth="167.0" promptText="Téléphone" style="-fx-background-color: transparent; -fx-border-style: solid; -fx-border-width: 2; -fx-border-color: #FF7F50;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="num2" layoutX="441.0" layoutY="191.0" opacity="0.62" prefHeight="35.0" prefWidth="167.0" promptText="Contact" style="-fx-background-color: transparent; -fx-border-style: solid; -fx-border-width: 2; -fx-border-color: #FF7F50;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="email" layoutX="441.0" layoutY="252.0" opacity="0.62" prefHeight="35.0" prefWidth="167.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-style: solid; -fx-border-width: 2; -fx-border-color: #FF7F50;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="30.0" fitWidth="37.0" layoutX="374.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icon-contact-phone.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="37.0" layoutX="373.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/IconContact.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="37.0" layoutX="374.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icon-contact-phone.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="375.0" layoutY="79.0" prefHeight="30.0" prefWidth="34.0">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/ico.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <ImageView fitHeight="30.0" fitWidth="37.0" layoutX="377.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/pen.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="clear" layoutX="375.0" layoutY="8.0" mnemonicParsing="false" onAction="#initial" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="x" textFill="CORAL">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         
+      </Button>
+      <Button fx:id="apropos" layoutX="608.0" layoutY="8.0" mnemonicParsing="false" onAction="#about" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="?" textFill="CORAL">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="57.0" layoutY="415.0" prefHeight="17.0" prefWidth="176.0" style="-fx-alignment: center;" text="conçu avec     by equipe 7">
+         <font>
+            <Font name="AR BERKLEY" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="17.0" fitWidth="12.0" layoutX="135.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/coeur.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

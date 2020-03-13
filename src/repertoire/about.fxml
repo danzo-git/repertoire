@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="491.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="repertoire.AboutController">
+   <children>
+      <Label fx:id="titre" layoutX="105.0" prefHeight="46.0" prefWidth="283.0" style="-fx-alignment: center; -fx-border-style: dotted solid; -fx-border-width: 4px; -fx-border-color: #FF7F50;" text="Repertoire Electronique">
+         <font>
+            <Font name="Rockwell Condensed" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="232.0" layoutY="289.0" prefHeight="31.0" prefWidth="150.0" style="-fx-alignment: center;" text="copyright © 2020, equpe 7." />
+      <Label layoutX="51.0" layoutY="94.0" prefHeight="31.0" prefWidth="60.0" text="Auteurs :">
+         <font>
+            <Font name="Tempus Sans ITC" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="147.0" prefHeight="31.0" prefWidth="60.0" text="Version :">
+         <font>
+            <Font name="Tempus Sans ITC" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="250.0" prefHeight="31.0" prefWidth="98.0" text="Code source :">
+         <font>
+            <Font name="Tempus Sans ITC" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="181.0" prefHeight="31.0" prefWidth="74.0" text="contact :">
+         <font>
+            <Font name="Tempus Sans ITC" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="215.0" prefHeight="31.0" prefWidth="83.0" text="mail:">
+         <font>
+            <Font name="Tempus Sans ITC" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="382.0" layoutY="289.0" prefHeight="31.0" prefWidth="98.0" style="-fx-alignment: center;" text="tout droit reservé" />
+      <TextArea editable="false" layoutX="141.0" layoutY="80.0" prefHeight="59.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: none;" text="Equipe 7 -&gt;&#10;Kouamé danzel, Tia demaurelle&#10;Junior, Sminth Malan">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="149.0" layoutY="154.0" prefHeight="17.0" prefWidth="83.0" text="1.0.1">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="149.0" layoutY="188.0" prefHeight="17.0" prefWidth="176.0" text="49925547 | 48219712">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="149.0" layoutY="222.0" prefHeight="17.0" prefWidth="230.0" text="expertproffessionnel@gmail.com">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="59.0" fitWidth="91.0" layoutX="394.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/pc.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
