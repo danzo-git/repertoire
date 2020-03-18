@@ -144,4 +144,34 @@ public class fonctions {
     }
       return false;
     }
+     public static  boolean isfavoris(String e){
+        try{
+        ResultSet rs=stmt.executeQuery("SELECT * FROM favoris WHERE numero='"+e+"'"); 
+      while(rs.next()){
+          return true;
+      }
+      } catch (SQLException ex) {
+      System.out.print(ex.getMessage()+"\n");
+    }
+      return false;
+    }
+
+    public static void modifEtoile(String op,String noms,String num){
+        if (op=="supp"){
+            try{
+            String sql = "DELETE FROM favoris WHERE numero="+num;
+            stmt.executeUpdate(sql);
+            } catch (SQLException ex) {
+            System.out.print(ex.getMessage()+"\n");
+            }
+        }
+        else{
+            try{
+                String requete = "INSERT INTO favoris(noms,numero) VALUES ("+"'"+noms+"','"+num+"')";
+                stmt.executeUpdate(requete);
+              } catch (SQLException ex) {
+              System.out.print(ex.getMessage()+"\n");
+            }
+        }
+    }
 }

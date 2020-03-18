@@ -41,7 +41,7 @@
          </font>
       </Label>
       <Label layoutX="382.0" layoutY="289.0" prefHeight="31.0" prefWidth="98.0" style="-fx-alignment: center;" text="tout droit reservé" />
-      <TextArea editable="false" layoutX="141.0" layoutY="80.0" prefHeight="59.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: none;" text="Equipe 7 -&gt;&#10;Kouamé danzel, Tia demaurelle&#10;Junior, Sminth Malan">
+      <TextArea editable="false" layoutX="141.0" layoutY="80.0" prefHeight="59.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: none;" text="Equipe 7 -&gt;&#10;Kouamé danzel, Tia demaurelle&#10;Tano Junior, Sminth Malan">
          <font>
             <Font name="Verdana" size="13.0" />
          </font>
@@ -66,5 +66,10 @@
             <Image url="@images/pc.gif" />
          </image>
       </ImageView>
+      <Label layoutX="149.0" layoutY="257.0" prefHeight="17.0" prefWidth="230.0" text="github.com/sminth/repertoire">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

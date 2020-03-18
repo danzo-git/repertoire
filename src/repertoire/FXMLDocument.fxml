@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -96,13 +97,13 @@
             <Image url="@images/pen.png" />
          </image>
       </ImageView>
-      <Button fx:id="clear" layoutX="375.0" layoutY="8.0" mnemonicParsing="false" onAction="#initial" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="x" textFill="CORAL">
+      <Button fx:id="clear" layoutX="591.0" layoutY="7.0" mnemonicParsing="false" onAction="#initial" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="x" textFill="CORAL">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
          
       </Button>
-      <Button fx:id="apropos" layoutX="608.0" layoutY="8.0" mnemonicParsing="false" onAction="#about" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="?" textFill="CORAL">
+      <Button fx:id="apropos" layoutX="623.0" layoutY="8.0" mnemonicParsing="false" onAction="#about" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: transparent;" text="?" textFill="CORAL">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -116,6 +117,14 @@
          <image>
             <Image url="@images/coeur.png" />
          </image>
+      </ImageView>
+      <ImageView fx:id="etoile" disable="true" fitHeight="28.0" fitWidth="34.0" layoutX="376.0" layoutY="13.0" onMouseClicked="#favoris" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/etoil.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </children>
 </AnchorPane>

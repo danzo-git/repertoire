@@ -5,10 +5,13 @@
  */
 package repertoire;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Array;
 import java.util.ArrayList;
+import static java.util.Collections.list;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
 import javafx.beans.InvalidationListener;
@@ -33,6 +36,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -40,51 +44,56 @@ import javafx.stage.Stage;
 /**
  * @author personnel
  */
+
+//class principale
 public class FXMLDocumentController implements Initializable {
     
+    //creation des variables 
     @FXML private Button modifier;
     @FXML private Button supp;
     @FXML private Button clear;
-    
     @FXML private Label label;
-    
     @FXML private  ListView<String> list;
     @FXML private TextField recherche;
-    
     @FXML
     private TextField noms;
     @FXML private TextField num1;
     @FXML private TextField num2;
     @FXML private TextField email;
     @FXML private TextField mention;
-    
+    @FXML private ImageView etoile;
+    String nom;String num;
+     
     private ObservableList<String> data = FXCollections.observableArrayList();
     
     String element=null;
+    Image image1 = new Image("repertoire/images/etle.png");
+    Image image2 = new Image("repertoire/images/etoil.png");
+   
     
     @FXML
-    private void initial(ActionEvent event) {
-        noms.clear();num1.clear();num2.clear();email.clear();mention.clear();recherche.clear();
-        modifier.setDisable(true);supp.setDisable(true);
-        element=null;
-    }
-     private void initial() {
+    private void initial() {
+        /*cette fonction est appelle pour tout remettre en ordre 
+        vider les champs s'ils sont remplir; desactiver certains bouton
+        */
          num1.clear();num2.clear();noms.clear();email.clear();mention.clear();recherche.clear();
-        modifier.setDisable(true);supp.setDisable(true);
-         element=null;
+         modifier.setDisable(true);supp.setDisable(true); etoile.setDisable(true);
+         element=null; 
+         etoile.setImage(image2);
+         affichage();
     }
     
-     @FXML
+    @FXML
     private void ajouter(ActionEvent event) {
+        /*fonction pour reuperer les info renseigner et inscrit un nouveau contact
+        */
         String nom=noms.getText();
         String nume1=num1.getText();
         String nume2=num2.getText();
         String mail=email.getText();
         String mention0=mention.getText();
         System.out.print(mention0);
-        
         if(nom.length()<=1 || nume1.length()<=1 ){
-            
             Alert alert = new Alert(Alert.AlertType.ERROR,"veillez remplir les champs");
             alert.showAndWait(); 
         }
@@ -116,6 +125,8 @@ public class FXMLDocumentController implements Initializable {
     
      @FXML
     private void modifier(ActionEvent event) {
+        /*fonction pour reuperer les info renseigner et modifier un nouveau contact
+        */
         try{
         String nom=noms.getText();
         String nume1=num1.getText();
@@ -145,6 +156,8 @@ public class FXMLDocumentController implements Initializable {
     }
     @FXML
     private void supprimer(ActionEvent event) {
+        /*fonction pour suprimer un contact
+        */
         try{
         boolean b=repertoire.fonctions.supprime(element);
         if(b==false){
@@ -163,6 +176,8 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void recherch(String rech) {
+        /*fonction pour rechercher un ou des contact
+        */
         try{
         list.getItems().clear();
         
@@ -181,9 +196,13 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     public void affichage(){
+        /*fonction pour afficher la liste des contacts dans la liste view
+        */
         try{
         list.getItems().clear();
+        
         ArrayList donnees =repertoire.fonctions.donnees(); //recupere nom et num1 dans la table contacth
+        
         for(int i=0;i<donnees.size();i++) data.add((String)donnees.get(i));
         list.setItems(data);
         }catch(Exception e){
@@ -193,6 +212,9 @@ public class FXMLDocumentController implements Initializable {
         
     }
     public void recupe_info(String num){
+        /*fonction pour reuperer les info du contact selectionner
+        et afficher ses details
+        */
         try{
         ArrayList donnees =repertoire.fonctions.recuperation(num);
         noms.setText((String)donnees.get(0));
@@ -204,9 +226,10 @@ public class FXMLDocumentController implements Initializable {
             
         }
     }
+    
     @FXML
     private void about(ActionEvent event) {
-       //Parent root;
+       //fonction pour lancer la fenetre apropos
     try {
          FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("about.fxml"));
         Parent parent = fxmlLoader.load();
@@ -231,17 +254,51 @@ public class FXMLDocumentController implements Initializable {
 
     } catch (IOException e) {e.printStackTrace();}
     }
-    
+    @FXML
+    private void favoris() throws FileNotFoundException {
+        /*fonction pour ajouter ou supprimer un favoris
+        */
+       boolean v;
+       try{
+       v=fonctions.isfavoris(num);
+       if (v==true){
+           fonctions.modifEtoile("supp",null,num);
+           etoile.setImage(image2);
+       }
+       else{
+           fonctions.modifEtoile("ajout",nom,num);
+           etoile.setImage(image1);
+       }
+       }catch(Exception e){
+           System.out.print("erreur");
+       }
+    }
+    public void etoile(String n){
+         /*fonction pour verifier si un contact est un favoris ou pas
+          */
+         boolean v;
+         v=fonctions.isfavoris(n);
+         if (v==true){
+             etoile.setImage(image1);
+         }
+         else{
+             etoile.setImage(image2);
+         }
+     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        /*fonction lancer en premier lors de l'execution du programme
+        permet d'afficher la liste des contact
+        desactiver certains boutons
+        ajouter des listener
+        */
         repertoire.fonctions.connection(); //connection bd
-        
         affichage();
         
-        num1.getStyleClass().add("num1");
-        num2.getStyleClass().add("num2");
-        email.getStyleClass().add("email");
-        mention.getStyleClass().add("mention");
+        list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        num1.getStyleClass().add("num1");num2.getStyleClass().add("num2");
+        email.getStyleClass().add("email");mention.getStyleClass().add("mention");
         noms.getStyleClass().add("nom");
         
         modifier.setDisable(true);
@@ -250,16 +307,19 @@ public class FXMLDocumentController implements Initializable {
         recherche.textProperty().addListener((observable,oldv,newv) -> {
         recherch(newv);
     });
+        
         list.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String str) {
-                String nom=str.substring(0,str.indexOf('\n'));
-                String num=str.substring(str.indexOf('\n')+1);
-               
+                nom=str.substring(0,str.indexOf('\n'));
+                num=str.substring(str.indexOf('\n')+1);
+                etoile.setDisable(false);
                 recupe_info(num);
+                etoile(num);
                 element=num;
                 modifier.setDisable(false);
                 supp.setDisable(false);
+                
                 }
            });
        
