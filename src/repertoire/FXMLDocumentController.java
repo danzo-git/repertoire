@@ -63,7 +63,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML private TextField mention;
     @FXML private ImageView etoile;
     String nom;String num;
-     
+    
     private ObservableList<String> data = FXCollections.observableArrayList();
     
     String element=null;
@@ -81,6 +81,7 @@ public class FXMLDocumentController implements Initializable {
          element=null; 
          etoile.setImage(image2);
          affichage();
+         
     }
     
     @FXML

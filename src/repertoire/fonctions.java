@@ -16,6 +16,7 @@ import javafx.scene.control.Alert;
 public class fonctions {
     //fonction de connection a la bd
     static final String BD_URL = "jdbc:mysql://localhost:3306/repertoire_electronique";
+    //zeroDateTimeBehavior=convertToNull
     static final String USER = "root";
     static final String PASS = "";
      static Connection con=null;
@@ -23,8 +24,19 @@ public class fonctions {
     public static void connection() {
        
         try{
-          con=DriverManager.getConnection(BD_URL,USER,PASS);  //connection a la bd
+          //con=DriverManager.getConnection(BD_URL,USER,PASS);  //connection a la bd
+          con=DriverManager.getConnection("jdbc:sqlite:repertoire.db");
           stmt=con.createStatement(); // creation d'un objet pour gerer les requetes a la bd
+          
+          /*String sql = "CREATE TABLE IF NOT EXISTS contacth " +
+                        "(id INT PRIMARY KEY," +
+                        " noms           CHAR(50)    NOT NULL, " + 
+                        " num1           CHAR(15)     NOT NULL, " + 
+                        " num2           CHAR(15), " + 
+                        " email          CHAR(15), " + 
+                        " mention         TEXT)";
+           
+         stmt.executeUpdate(sql);*/
           System.out.print("connection ok\n");
         }
 
