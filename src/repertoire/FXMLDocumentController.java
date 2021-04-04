@@ -22,6 +22,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,14 +31,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -307,9 +312,10 @@ public class FXMLDocumentController implements Initializable {
         
         recherche.textProperty().addListener((observable,oldv,newv) -> {
         recherch(newv);
-    });
+        });
         
         list.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String str) {
                 nom=str.substring(0,str.indexOf('\n'));
@@ -322,7 +328,30 @@ public class FXMLDocumentController implements Initializable {
                 supp.setDisable(false);
                 
                 }
+            
            });
+        
+        final ContextMenu contextMenu = new ContextMenu();
+        MenuItem print1 = new MenuItem("ajouter aux favoris");
+        MenuItem print2 = new MenuItem("envoyer un message");
+        MenuItem print3 = new MenuItem("envoyer un mail");
+    
+        contextMenu.getItems().addAll(print1, print2, print3);
+
+        list.setContextMenu(contextMenu);
+        list.setOnContextMenuRequested(new EventHandler() {
+
+            public void handle(ContextMenuEvent event) {
+                contextMenu.show(list, event.getScreenX(), event.getScreenY());
+                event.consume();
+            }
+
+             @Override
+             public void handle(Event event) {
+                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             }
+            
+        });
        
         num1.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -341,7 +370,7 @@ public class FXMLDocumentController implements Initializable {
             }
         });
     }
-
-   
+      private void load(ActionEvent event){
          
+      }
 }

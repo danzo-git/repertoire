@@ -9,6 +9,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;import java.sql.Array;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javafx.scene.control.Alert;
@@ -39,7 +44,6 @@ public class fonctions {
          stmt.executeUpdate(sql);*/
           System.out.print("connection ok\n");
         }
-
         catch (SQLException ex) {
                 System.out.print("connection a la base de donnée impossible\n");
                 System.out.print(ex.getMessage());
